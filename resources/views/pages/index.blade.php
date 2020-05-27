@@ -14,7 +14,7 @@
                         <div class="char_icon"><img src="{{ asset('public/frontend/images/char_1.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from &#3647;500</div>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                         <div class="char_icon"><img src="{{ asset('public/frontend/images/char_2.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from &#3647;500</div>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         <div class="char_icon"><img src="{{ asset('public/frontend/images/char_3.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from &#3647;500</div>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                         <div class="char_icon"><img src="{{ asset('public/frontend/images/char_4.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from &#3647;500</div>
                         </div>
                     </div>
                 </div>
