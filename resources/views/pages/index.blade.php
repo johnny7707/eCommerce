@@ -9,48 +9,48 @@
 
                 <!-- Char. Item -->
                 <div class="col-lg-3 col-md-6 char_col">
-                    
+
                     <div class="char_item d-flex flex-row align-items-center justify-content-start">
                         <div class="char_icon"><img src="{{ asset('public/frontend/images/char_1.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from &#3647;500</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Char. Item -->
                 <div class="col-lg-3 col-md-6 char_col">
-                    
+
                     <div class="char_item d-flex flex-row align-items-center justify-content-start">
                         <div class="char_icon"><img src="{{ asset('public/frontend/images/char_2.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from &#3647;500</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Char. Item -->
                 <div class="col-lg-3 col-md-6 char_col">
-                    
+
                     <div class="char_item d-flex flex-row align-items-center justify-content-start">
                         <div class="char_icon"><img src="{{ asset('public/frontend/images/char_3.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from &#3647;500</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Char. Item -->
                 <div class="col-lg-3 col-md-6 char_col">
-                    
+
                     <div class="char_item d-flex flex-row align-items-center justify-content-start">
                         <div class="char_icon"><img src="{{ asset('public/frontend/images/char_4.png') }}" alt=""></div>
                         <div class="char_content">
                             <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+                            <div class="char_subtitle">from &#3647;500</div>
                         </div>
                     </div>
                 </div>
@@ -64,16 +64,16 @@
         <div class="container">
             <div class="row">
                 <div class="col d-flex flex-lg-row flex-column align-items-center justify-content-start">
-                    
+
                     <!-- Deals -->
 
                     <div class="deals">
                         <div class="deals_title">Deals of the Week</div>
                         <div class="deals_slider_container">
-                            
+
                             <!-- Deals Slider -->
                             <div class="owl-carousel owl-theme deals_slider">
-                                
+
                                 <!-- Deals Item -->
                                 <div class="owl-item deals_item">
                                     <div class="deals_image"><img src="{{ asset('public/frontend/images/deals.png') }}" alt=""></div>
@@ -215,7 +215,7 @@
                             <div class="deals_slider_next deals_slider_nav"><i class="fas fa-chevron-right ml-auto"></i></div>
                         </div>
                     </div>
-                    
+
                     <!-- Featured -->
                     <div class="featured">
                         <div class="tabbed_container">
@@ -1507,7 +1507,7 @@
                         <div class="popular_categories_link"><a href="#">full catalog</a></div>
                     </div>
                 </div>
-                
+
                 <!-- Popular Categories Slider -->
 
                 <div class="col-lg-9">
@@ -1584,7 +1584,7 @@
                                         <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
                                         <div class="button banner_2_button"><a href="#">Explore</a></div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="col-lg-8 col-md-6 fill_height">
                                     <div class="banner_2_image_container">
@@ -1592,7 +1592,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>          
+                        </div>
                     </div>
                 </div>
 
@@ -1609,7 +1609,7 @@
                                         <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
                                         <div class="button banner_2_button"><a href="#">Explore</a></div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="col-lg-8 col-md-6 fill_height">
                                     <div class="banner_2_image_container">
@@ -1617,7 +1617,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>          
+                        </div>
                     </div>
                 </div>
 
@@ -1634,7 +1634,7 @@
                                         <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
                                         <div class="button banner_2_button"><a href="#">Explore</a></div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="col-lg-8 col-md-6 fill_height">
                                     <div class="banner_2_image_container">
@@ -1642,7 +1642,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>          
+                        </div>
                     </div>
                 </div>
 
@@ -2922,11 +2922,11 @@
                             </div>
 
                         </div>
-                                
+
                     </div>
                 </div>
             </div>
-        </div>      
+        </div>
     </div>
 
     <!-- Best Sellers -->
@@ -3621,7 +3621,7 @@
                             </div>
                         </div>
                     </div>
-                        
+
                 </div>
             </div>
         </div>
@@ -3634,7 +3634,7 @@
             <div class="row">
 
                 <div class="col-lg-4 advert_col">
-                    
+
                     <!-- Advert Item -->
 
                     <div class="advert d-flex flex-row align-items-center justify-content-start">
@@ -3647,7 +3647,7 @@
                 </div>
 
                 <div class="col-lg-4 advert_col">
-                    
+
                     <!-- Advert Item -->
 
                     <div class="advert d-flex flex-row align-items-center justify-content-start">
@@ -3661,7 +3661,7 @@
                 </div>
 
                 <div class="col-lg-4 advert_col">
-                    
+
                     <!-- Advert Item -->
 
                     <div class="advert d-flex flex-row align-items-center justify-content-start">
@@ -3833,17 +3833,17 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    
+
                     <div class="reviews_title_container">
                         <h3 class="reviews_title">Latest Reviews</h3>
                         <div class="reviews_all ml-auto"><a href="#">view all <span>reviews</span></a></div>
                     </div>
 
                     <div class="reviews_slider_container">
-                        
+
                         <!-- Reviews Slider -->
                         <div class="owl-carousel owl-theme reviews_slider">
-                            
+
                             <!-- Reviews Slider Item -->
                             <div class="owl-item">
                                 <div class="review d-flex flex-row align-items-start justify-content-start">
@@ -3957,11 +3957,11 @@
                     </div>
 
                     <div class="viewed_slider_container">
-                        
+
                         <!-- Recently Viewed Slider -->
 
                         <div class="owl-carousel owl-theme viewed_slider">
-                            
+
                             <!-- Recently Viewed Item -->
                             <div class="owl-item">
                                 <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
@@ -4035,7 +4035,7 @@
                                         <li class="item_mark item_new">new</li>
                                     </ul>
                                 </div>
-                            </div> 
+                            </div>
 
                             <!-- Recently Viewed Item -->
                             <div class="owl-item">
@@ -4065,11 +4065,11 @@
             <div class="row">
                 <div class="col">
                     <div class="brands_slider_container">
-                        
+
                         <!-- Brands Slider -->
 
                         <div class="owl-carousel owl-theme brands_slider">
-                            
+
                             <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center">
                                 <img src="{{ asset('public/frontend/images/brands_1.jpg') }}" alt=""></div></div>
                             <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center">
@@ -4088,7 +4088,7 @@
                                 <img src="{{ asset('public/frontend/images/brands_8.jpg') }}" alt=""></div></div>
 
                         </div>
-                        
+
                         <!-- Brands Slider Navigation -->
                         <div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
                         <div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
@@ -4122,6 +4122,6 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 
 @endsection()
