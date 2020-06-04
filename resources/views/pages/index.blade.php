@@ -5,7 +5,7 @@
 @include('layouts.menubar')
 
 @php 
-    $featured = DB::table('products')->where('status',1)->orderBy('id','DESC')->limit(8)->get();
+    $featured = DB::table('products')->where('status',1)->orderBy('id','DESC')->limit(10)->get();
 
     $trend = DB::table('products')->where('status',1)->where('trend',1)->orderBy('id','DESC')->limit(8)->get();
 
@@ -165,8 +165,6 @@
                             <div class="tabs">
                                 <ul class="clearfix">
                                     <li class="active">Featured</li>
-                                    <li>On Sale</li>
-                                    <li>Best Rated</li>
                                 </ul>
                                 <div class="tabs_line"><span></span></div>
                             </div>
@@ -201,14 +199,14 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="product_extras">
-                                                    <button class="product_cart_button addcart" data-id="{{ $row->id }}" >Add to Cart</button>
-                                                </div>
-
                                                 <!-- <div class="product_extras">
-                                                    <button type="button" class="product_cart_button addcart" id="{{ $row->id }}" 
-                                                        data-toggle="modal" data-target="#cartmodal" onclick="productview(this.id)">Add to Cart</button>
+                                                    <button class="product_cart_button addcart" data-id="{{ $row->id }}" >Add to Cart</button>
                                                 </div> -->
+
+                                                <div class="product_extras">
+                                                    <button type="button" class="product_cart_button addcart" id="{{ $row->id }}" 
+                                                        data-toggle="modal" data-target="#cartmodal" onclick="productview(this.id)"> Buy Now</button>
+                                                </div>
 
                                             </div>
 
@@ -263,7 +261,7 @@
                                                 <div class="product_name"><div><a href="product.html">{{ $row->product_name }}</a></div></div>
                                                 <div class="product_extras">
                                                     
-                                                    <button class="product_cart_button addcart" data-id="{{ $row->id }}">Add to Cart</button>
+                                                    <button class="product_cart_button addcart" data-id="{{ $row->id }}">Buy Now</button>
                                                 </div>
                                             </div>
                                             <button class="addwishlist" data-id="{{ $row->id }}">
@@ -1758,27 +1756,115 @@
 
 <!-- Cart Modal -->
 <!-- Modal -->
-<!-- <div class="modal fade" id="cartmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongLavel" aria-hidden="true">
+<div class="modal fade" id="cartmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongLavel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Cart Details</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Product Quick View</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
-        ...
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="">
+                    <div class="card-body">
+                        <img src="" class="text-center" id="pimage" style="width: 200px; height: 150px;"><br>
+                        <h5 class="card-title" id="pname"> </h5>
+                            
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-group">
+                  <li class="list-group-item" id="pcode">Product Code: </li>
+                  <li class="list-group-item" id="pcat">Category: </li>
+                  <li class="list-group-item" id="psub">Subcategory: </li>
+                  <li class="list-group-item" id="pbrand">Brand: </li>
+                  <li class="list-group-item">Stock: <span class="badge" style="background: green; color: white;">Available</span></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+<form action="{{ route('insert.into.cart') }}" method="post" > 
+@csrf
+
+    <input type="hidden" name="product_id" id="product_id">
+                <div class="form-group">
+                    <label for="exampleInputcolor">Color </label>
+                    <select class="form-control" id="color" name="color">
+                     
+                    </select>
+                </div>
+            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="exampleInputcolor">Size </label>
+                    <select class="form-control" id="size" name="size">
+                    
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="exampleInputcolor">Quantity </label>
+                   <input type="number" class="form-control" value="1" name="qty">
+                </div>
+            </div>
+           
+           
+        </div>
+
       </div>
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Add to Cart</button>
       </div>
+</form>
+
     </div>
   </div>
-</div> -->
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    
+    function productview(id){
+        $.ajax({
+            url:"{{ url('/cart/product/view/') }}/"+id,
+            type:"GET",
+            dataType:"json",
+            success:function(data){
+                $('#pcode').text(data.product.product_code);
+                $('#pcat').text(data.product.category_name);
+                $('#psub').text(data.product.subcategory_name);
+                $('#pbrand').text(data.product.brand_name);
+                $('#pname').text(data.product.product_name);
+                $('#pimage').attr('src',data.product.image_one);
+                $('#product_id').val(data.product.product_id);
+
+                var d = $('select[name="color"]').empty();
+                $.each(data.color,function(key,value){
+                    $('select[name="color"]').append('<option value="'+value+'">'+value+'</option>');
+                });
+
+                 var d = $('select[name="size"]').empty();
+                $.each(data.size,function(key,value){
+                    $('select[name="size"]').append('<option value="'+value+'">'+value+'</option>');
+                });
+            }
+        })
+    }
+
+
+</script>
+
+
 
 <script type="text/javascript">
     
@@ -1824,7 +1910,7 @@
 
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     
     $(document).ready(function(){
         $('.addcart').on('click',function(){
@@ -1866,7 +1952,7 @@
         });
     });
 
-</script>
+</script> -->
 
 
 @endsection()
