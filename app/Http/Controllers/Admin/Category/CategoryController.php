@@ -10,16 +10,16 @@ use DB;
 class CategoryController extends Controller
 {
     public function __construct()
-    {    	
+    {
         $this->middleware('auth:admin');
     }
 
     public function category()
     {
     	// echo "Hi! Rajiva";
-	//	return view('admin.category.category');
+	    //   return view('admin.category.category');
 
-        $category = categories::all();
+        $category = Category::all();
 
         return view('admin.category.category',compact('category'));
     }
@@ -27,23 +27,63 @@ class CategoryController extends Controller
     public function storecategory(Request $request)
     {
 
-    	//   $validateData = $request->validate(['category_name' => 'required|unique:categories|max:255']);
+    	   $validateData = $request->validate(['category_name' => 'required|unique:categories|max:255']);
 
 	    //	$data = array();
 	    //	$data['category_name']=$request->category_name;
 	    //	DB::Table('categories')->insert($data);
 
 	    	$category = new Category();
-	    	$category->category_name = $request->category_name;
-	    	$category=save();
 
-    	    $notification=array(
+	    	$category->category_name = $request->category_name;
+
+	    	$category->save();
+
+    	    $notification = array(
                        'messege'=>'Category added successfully', 'alert-type'=>'success');
-                    return Redirect()->back()->with($notification);
+
+            return Redirect()->back()->with($notification);
 
     }
 
-    
+    public function Deletecategory($id)
+    {
+        DB::table('categories')->where('id',$id)->delete();
+            $alert = array(
+                       'messege'=>'Category Deleted successfully', 'alert-type'=>'success');
+
+            return Redirect()->back()->with($alert);
+    }
+
+
+    public function Editcategory($id)
+    {
+        $category = DB::table('categories')->where('id',$id)->first();
+
+        return view('admin.category.edit_category',compact('category'));
+    }
+
+
+    public function Updatecategory(Request $request, $id)
+    {
+        $validateData = $request->validate(['category_name' => 'required|max:255', ]);
+
+        $data = array();
+        $data['category_name'] = $request->category_name;
+        $update = DB::table('categories')->where('id',$id)->update($data);
+        if ($update) {
+            $notification = array(
+                       'messege'=>'Category Updated successfully', 'alert-type'=>'success');
+
+            return Redirect()->route('categories')->with($notification);
+        }else{
+            $notification = array(
+                       'messege'=>'Nothing to Update', 'alert-type'=>'error');
+
+            return Redirect()->route('categories')->with($notification);
+        }
+    }
+
 
 
 }

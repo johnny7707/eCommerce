@@ -18,8 +18,8 @@
     <meta property="og:title" content="Starlight">
     <meta property="og:description" content="Shopping Online">
 
-    <meta property="og:image" content="http://themepixels.me/starlight/img/starlight-social.png">
-    <meta property="og:image:secure_url" content="http://themepixels.me/starlight/img/starlight-social.png">
+    <meta property="og:image" content="">
+    <meta property="og:image:secure_url" content="">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
@@ -35,8 +35,7 @@
     <link href="{{ asset('public/backend/lib/Ionicons/css/ionicons.css') }}" rel="stylesheet">
     <link href="{{ asset('public/backend/lib/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet">
     <link href="{{ asset('public/backend/lib/rickshaw/rickshaw.min.css') }}" rel="stylesheet">
-
-    <!-- chart -->
+    <link href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     <!-- DataTable CSS -->
     <link href="{{ asset('public/backend/lib/highlightjs/github.css') }}" rel="stylesheet">
@@ -45,18 +44,17 @@
 
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{ asset('public/backend/css/starlight.css') }}">
+    <link href="{{ asset('public/backend/lib/summernote/summernote-bs4.css') }}" rel="stylesheet">
   </head>
 
   <body>
-    
     @guest
-    
 
     @else
        <!-- ########## START: LEFT PANEL ########## -->
     <div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i>A&JShopping</a></div>
     <div class="sl-sideleft">
-      
+
 
       <div class="sl-sideleft-menu">
         <a href="{{ url('admin/home') }}" class="sl-menu-link active">
@@ -65,75 +63,66 @@
             <span class="menu-item-label">Dashboard</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        
+
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
-            <i class="menu-item-icon ion-ios-folder-outline tx-20"></i>
+            <i class="menu-item-icon fa fa-list-alt tx-20" style="font-size:24px;color:green"></i>
             <span class="menu-item-label">Category</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{ route('categories')}} " class="nav-link">Category</a></li>
-          <li class="nav-item"><a href="" class="nav-link">Sub Category</a></li>
-          <li class="nav-item"><a href="" class="nav-link">Brand</a></li>         
+          <li class="nav-item"><a href="{{ route('sub.categories')}}" class="nav-link">Sub Category</a></li>
+          <li class="nav-item"><a href="{{ route('brands')}}" class="nav-link">Brand</a></li>
         </ul>
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-gear-outline tx-24"></i>
-            <span class="menu-item-label">Utilities</span>
+            <i class="menu-item-icon fa fa-gift  tx-24" style="font-size:24px;color:red"></i>
+            <span class="menu-item-label">Coupons</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="#" class="nav-link">Banner</a></li>
-          <li class="nav-item"><a href="form-layouts.html" class="nav-link">Form Layouts</a></li>
-          <li class="nav-item"><a href="form-validation.html" class="nav-link">Form Validation</a></li>
-          <li class="nav-item"><a href="form-wizards.html" class="nav-link">Form Wizards</a></li>
-          <li class="nav-item"><a href="form-editor-text.html" class="nav-link">Text Editor</a></li>
+          <li class="nav-item"><a href="{{ route('admin.coupon')}}" class="nav-link">Coupon</a></li>
+
         </ul>
+
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
-            <span class="menu-item-label">UI Elements</span>
+            <i class="menu-item-icon fa fa-product-hunt tx-20" style="font-size:24px;color:green"></i>
+            <span class="menu-item-label">Products</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="accordion.html" class="nav-link">Accordion</a></li>
-          <li class="nav-item"><a href="alerts.html" class="nav-link">Alerts</a></li>
-          <li class="nav-item"><a href="buttons.html" class="nav-link">Buttons</a></li>
-          <li class="nav-item"><a href="cards.html" class="nav-link">Cards</a></li>
-          <li class="nav-item"><a href="icons.html" class="nav-link">Icons</a></li>
-          <li class="nav-item"><a href="modal.html" class="nav-link">Modal</a></li>
-          <li class="nav-item"><a href="navigation.html" class="nav-link">Navigation</a></li>
-          <li class="nav-item"><a href="pagination.html" class="nav-link">Pagination</a></li>
-          <li class="nav-item"><a href="popups.html" class="nav-link">Tooltip &amp; Popover</a></li>
-          <li class="nav-item"><a href="progress.html" class="nav-link">Progress</a></li>
-          <li class="nav-item"><a href="spinners.html" class="nav-link">Spinners</a></li>
-          <li class="nav-item"><a href="typography.html" class="nav-link">Typography</a></li>
+          <li class="nav-item"><a href="{{ route('create.product')}} " class="nav-link">Add Product</a></li>
+          <li class="nav-item"><a href="{{route('list.product')}} " class="nav-link">All Products</a></li>
         </ul>
+
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
-            <span class="menu-item-label">Tables</span>
+            <i class="menu-item-icon icon ion-ios-filing-outline tx-24" style="font-size:24px;color:green"></i>
+            <span class="menu-item-label">Others</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="table-basic.html" class="nav-link">Basic Table</a></li>
-          <li class="nav-item"><a href="table-datatable.html" class="nav-link">Data Table</a></li>
+          <li class="nav-item"><a href="{{ route('admin.newsletter') }}" class="nav-link">Newsletters</a></li>
+
         </ul>
+
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-navigate-outline tx-24"></i>
-            <span class="menu-item-label">Maps</span>
+            <i class="menu-item-icon fa fa-language" style="font-size:24px;color:green"></i>
+            <span class="menu-item-label">Multi Languages</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="map-google.html" class="nav-link">Google Maps</a></li>
-          <li class="nav-item"><a href="map-vector.html" class="nav-link">Vector Maps</a></li>
+          <li class="nav-item"><a href="{{ route('add.blog.categorylist') }}" class="nav-link"> Langauge Category </a></li>
+          <li class="nav-item"><a href="{{ route('add.blogpost') }}" class="nav-link"> Add Post </a></li>
+          <li class="nav-item"><a href="{{ route('list.blogpost') }}" class="nav-link"> Post List </a></li>
         </ul>
         <a href="mailbox.html" class="sl-menu-link">
           <div class="sl-menu-item">
@@ -354,7 +343,6 @@
     @endguest
 
     @yield('admin_content')
-   
 
     <script src="{{ asset('public/backend/lib/jquery/jquery.js') }}"></script>
     <script src="{{ asset('public/backend/lib/popper.js/popper.js') }}"></script>
@@ -399,12 +387,44 @@
     <script src="{{ asset('public/backend/lib/Flot/jquery.flot.pie.js') }}"></script>
     <script src="{{ asset('public/backend/lib/Flot/jquery.flot.resize.js') }}"></script>
     <script src="{{ asset('public/backend/lib/flot-spline/jquery.flot.spline.js') }}"></script>
+
+    <script src="{{ asset('public/backend/lib/medium-editor/medium-editor.js') }} "></script>
+    <script src="{{ asset('public/backend/lib/summernote/summernote-bs4.min.js') }} "></script>
+    <script>
+      $(function(){
+        'use strict';
+
+        // Inline editor
+        var editor = new MediumEditor('.editable');
+
+        // Summernote editor
+        $('#summernote').summernote({
+          height: 150,
+          tooltip: false
+        })
+      });
+    </script>
+    <script>
+      $(function(){
+        'use strict';
+
+        // Inline editor
+        var editor = new MediumEditor('.editable');
+
+        // Summernote editor
+        $('#summernote1').summernote({
+          height: 150,
+          tooltip: false
+        })
+      });
+    </script>
+
+
     <script src="{{ asset('public/backend/js/starlight.js') }}"></script>
     <script src="{{ asset('public/backend/js/ResizeSensor.js') }}"></script>
     <script src="{{ asset('public/backend/js/dashboard.js') }}"></script>
-    
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    
     <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}} "></script>
     <script>
         @if(Session::has('messege'))
@@ -424,9 +444,9 @@
                   break;
           }
         @endif
-     </script>  
+     </script>
 
-     <script>  
+     <script>
          $(document).on("click", "#delete", function(e){
              e.preventDefault();
              var link = $(this).attr("href");

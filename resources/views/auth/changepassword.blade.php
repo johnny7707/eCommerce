@@ -2,16 +2,14 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Change Password') }}</div>
+                <div class="card-header">{{ __('Change Your Password') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}" aria-label="{{ __('Reset Password') }}">
                         @csrf
-
-
                         <div class="form-group row">
                             <label for="oldpass" class="col-md-4 col-form-label text-md-right">{{ __('Old Password') }}</label>
 
@@ -27,7 +25,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('New Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -59,6 +57,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-4">
+          <div class="card">
+            <img src="{{ asset('public/frontend/images/ant1.jpg') }}" class="card-img-top img-circle" style="height: 90px; width: 90px; margin-left: 30%;">
+            <div class="card-body">
+              <h4 class="card-title text-center"> {{ Auth::user()->name }} </h4>
+              
+            </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a href="{{ route('password.change') }}"><i class="fa fa-key"></i> Change Password</a> </li>
+              <li class="list-group-item"><a href="  "><i class="fa fa-user"></i> Profile</a> </li>
+            </ul>
+            <div class="card-body">
+              <a href="{{ route('user.logout') }}" class="btn btn-sm btn-danger btn-block"><i class="fa fa-sign-out-alt"></i> LogOut</a>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 </div>
 @endsection

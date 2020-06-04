@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><strong>Admin</strong> Change Password</div>
+                <div class="card-header"><strong>Admin</strong> Change Your Password</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ Route('admin.password.update') }}" aria-label="{{ __('Reset Password') }}">
